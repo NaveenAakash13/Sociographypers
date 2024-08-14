@@ -1,31 +1,76 @@
 .search-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(238, 238, 238);
-    padding: 20px;
-    min-height: calc(100vh - 64px); /* Adjust based on the height of the Navbar */
-  }
-  
-  .search-bar {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 2px solid rgb(80, 140, 155);
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .search-results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .partner-card {
-    max-width: 600px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(165, 215, 232);
+  padding: 20px;
+  min-height: calc(100vh - 64px); /* Adjust based on the height of the Navbar */
+}
+
+.search-bar {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid rgb(87, 108, 188);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.partner-card {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: rgb(11, 36, 71); /* Assuming you want to keep the partner-card styling consistent */
+  border: 2px solid rgb(87, 108, 188);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.partner-card:hover {
+  transform: scale(1.02);
+}
+
+.partner-card .content h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: rgb(165, 215, 232);
+}
+
+.partner-card .content p {
+  margin: 10px 0 0;
+  color: rgb(165, 215, 232);
+}
+
+.partner-card .button-container button {
+  padding: 10px 20px;
+  background-color: rgb(87, 108, 188);
+  color: rgb(165, 215, 232);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.partner-card .button-container button:hover {
+  background-color: rgb(25, 55, 109);
+  border-color: rgb(25, 55, 109);
+}
+
+.partner-card .button-container button:active {
+  transform: scale(0.95);
+}
+
+.partner-card .button-container button:focus {
+  outline: none;
+  border-color: rgb(25, 55, 109);
+}

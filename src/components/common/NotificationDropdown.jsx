@@ -35,7 +35,7 @@ const NotificationDropdown = () => {
 
   return (
     <div>
-      <IconButton aria-describedby={id} color="black" onClick={handleClick}>
+      <IconButton aria-describedby={id} color="inherit" onClick={handleClick}>
         <Badge 
           badgeContent={notifications.length} 
           color="primary"
@@ -48,7 +48,7 @@ const NotificationDropdown = () => {
             }
           }}
         >
-          <NotificationsIcon />
+          <NotificationsIcon sx={{ color: 'rgb(165, 215, 232)' }} />
         </Badge>
       </IconButton>
       <Popover
@@ -65,36 +65,42 @@ const NotificationDropdown = () => {
           horizontal: 'right',
         }}
         PaperProps={{
-          style: { maxHeight: 300, width: '350px', borderRadius: '10px' },
+          style: { 
+            maxHeight: 300, 
+            width: '350px', 
+            borderRadius: '10px', 
+            backgroundColor: 'rgb(11, 36, 71)',
+            color: 'rgb(165, 215, 232)'
+          },
         }}
       >
-        <Paper sx={{ padding: 1 }}>
+        <Paper sx={{ padding: 1, backgroundColor: 'rgb(25, 55, 109)' }}>
           {notifications.length > 0 ? (
             <List>
               {notifications.map((notification, index) => (
                 <React.Fragment key={notification.id}>
                   <ListItem alignItems="flex-start" sx={{ paddingY: 1 }}>
                     <ListItemAvatar>
-                      <Avatar>
+                      <Avatar sx={{ bgcolor: 'rgb(87, 108, 188)' }}>
                         {notification.icon}
                       </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                      primary={<Typography variant="subtitle2" sx={{ fontFamily: 'League Spartan, sans-serif' }}>{notification.title}</Typography>}
-                      secondary={<Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'League Spartan, sans-serif' }}>{notification.description}</Typography>}
+                      primary={<Typography variant="subtitle2" sx={{ fontFamily: 'League Spartan, sans-serif', color: 'rgb(165, 215, 232)' }}>{notification.title}</Typography>}
+                      secondary={<Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'League Spartan, sans-serif', color: 'rgb(165, 215, 232)' }}>{notification.description}</Typography>}
                     />
                     <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(notification.id)}>
+                      <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(notification.id)} sx={{ color: 'rgb(165, 215, 232)' }}>
                         <DeleteIcon />
                       </IconButton>
                     </ListItemSecondaryAction>
                   </ListItem>
-                  {index < notifications.length - 1 && <Divider />}
+                  {index < notifications.length - 1 && <Divider sx={{ backgroundColor: 'rgb(87, 108, 188)' }} />}
                 </React.Fragment>
               ))}
             </List>
           ) : (
-            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'League Spartan, sans-serif', padding: 2 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'League Spartan, sans-serif', padding: 2, color: 'rgb(165, 215, 232)' }}>
               No notifications.
             </Typography>
           )}

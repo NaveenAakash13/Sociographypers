@@ -9,8 +9,8 @@ const ProfileAvatar = ({ imageUrl, altText, width = 200, height = 200 }) => {
       sx={{
         width: width,
         height: height,
-        backgroundColor: '#f0f0f0', // fallback color if image fails to load
-        border: '2px solid #fff', // white border
+        backgroundColor: 'rgb(87, 108, 188)', // fallback color if image fails to load
+        border: '2px solid rgb(165, 215, 232)', // new border color
       }}
     />
   );

@@ -15,7 +15,8 @@ const DribbbleShot = ({
   author,
   avatar,
   category,
-  initialComments = []
+  initialComments = [],
+  id
 }) => {
   const [open, setOpen] = React.useState(false);
   const [comments, setComments] = React.useState(initialComments);
@@ -71,7 +72,7 @@ const DribbbleShot = ({
             width: '100%',
             height: '100%',
             background:
-              'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)',
+              'linear-gradient(to top, rgba(11, 36, 71, 0.4), rgba(11, 36, 71, 0) 200px), linear-gradient(to top, rgba(11, 36, 71, 0.8), rgba(11, 36, 71, 0) 300px)',
             opacity: 0,
             transition: 'opacity 0.3s',
             borderRadius: 'inherit',
@@ -89,6 +90,7 @@ const DribbbleShot = ({
             padding: 2,
             boxSizing: 'border-box',
             borderRadius: 'inherit',
+            backgroundColor: 'rgba(11, 36, 71, 0.7)',
           }}
         >
           <Typography level="h5" textColor="#fff">
@@ -97,13 +99,13 @@ const DribbbleShot = ({
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography
               startDecorator={<LocationOnRoundedIcon />}
-              textColor="neutral.300"
+              textColor="rgb(165, 215, 232)"
               fontSize="14px"
             >
               {location}
             </Typography>
             <Typography
-              textColor="neutral.300"
+              textColor="rgb(165, 215, 232)"
               fontSize="14px"
             >
               {date}
@@ -127,6 +129,7 @@ const DribbbleShot = ({
         newComment={newComment}
         handleCommentChange={handleCommentChange}
         handleAddComment={handleAddComment}
+        id={id}
       />
     </>
   );

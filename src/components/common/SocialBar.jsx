@@ -13,7 +13,7 @@ const SocialBar = () => {
         href="https://facebook.com"
         target="_blank"
         rel="noopener noreferrer"
-        sx={{ color: 'black' }}
+        sx={{ color: 'rgb(11, 36, 71)' }} // Updated color
       >
         <FacebookIcon />
       </IconButton>
@@ -22,7 +22,7 @@ const SocialBar = () => {
         href="https://twitter.com"
         target="_blank"
         rel="noopener noreferrer"
-        sx={{ color: 'black' }}
+        sx={{ color: 'rgb(25, 55, 109)' }} // Updated color
       >
         <TwitterIcon />
       </IconButton>
@@ -31,7 +31,7 @@ const SocialBar = () => {
         href="https://instagram.com"
         target="_blank"
         rel="noopener noreferrer"
-        sx={{ color: 'black' }}
+        sx={{ color: 'rgb(87, 108, 188)' }} // Updated color
       >
         <InstagramIcon />
       </IconButton>
@@ -40,7 +40,7 @@ const SocialBar = () => {
         href="https://linkedin.com"
         target="_blank"
         rel="noopener noreferrer"
-        sx={{ color: 'black' }}
+        sx={{ color: 'rgb(165, 215, 232)' }} // Updated color
       >
         <LinkedInIcon />
       </IconButton>

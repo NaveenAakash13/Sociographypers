@@ -1,90 +1,38 @@
-// import React from 'react';
-// import PartnerCard from './PartnerCard';
-// import './PartnerList.css';
-// import pic1 from '../pics/1307360.jpeg';
-// import pic2 from '../pics/gin2.jpeg';
-// import pic3 from '../pics/spike1.png';
-
-// const partners = [
-//   {
-//     id: 1,
-//     title: 'Google',
-//     description: 'We are looking for Photographs representing the company\'s best interest.',
-//     imageUrl: pic1,
-//   },
-//   {
-//     id: 2,
-//     title: 'Microsoft',
-//     description: 'We are in search of talents who can capture our visions with a lens.',
-//     imageUrl: pic2,
-//   },
-//   {
-//     id: 3,
-//     title: 'Rediffmail',
-//     description: 'On a search for spectacular modern landscapes for our site.',
-//     imageUrl: pic3,
-//   },
-// ];
-
-// const PartnerList = () => {
-//   return (
-//     <div className="partner-list">
-//       {partners.map(partner => (
-//         <PartnerCard
-//           key={partner.id}
-//           title={partner.title}
-//           description={partner.description}
-//           imageUrl={partner.imageUrl}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default PartnerList;
-
-// PartnerList.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PartnerCard from './PartnerCard';
-import './PartnerList.css';
-import pic1 from '../pics/1307360.jpeg';
-import pic2 from '../pics/gin2.jpeg';
-import pic3 from '../pics/spike1.png';
-
-const partners = [
-  {
-    id: 1,
-    title: 'Google',
-    description: 'We are looking for Photographs representing the company\'s best interest.',
-    imageUrl: pic1,
-  },
-  {
-    id: 2,
-    title: 'Microsoft',
-    description: 'We are in search of talents who can capture our visions with a lens.',
-    imageUrl: pic2,
-  },
-  {
-    id: 3,
-    title: 'Rediffmail',
-    description: 'On a search for spectacular modern landscapes for our site.',
-    imageUrl: pic3,
-  },
-];
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import axiosInstance from '../../common/axiosInstance'; // Adjust the path as necessary
 
 const PartnerList = () => {
+  const [partners, setPartners] = useState([]);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const response = await axiosInstance.get('/partners'); // Use the axios instance
+        setPartners(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching partners:', error);
+      }
+    };
+
+    fetchPartners();
+  }, []);
   return (
-    <div className="partner-list">
+    <Container sx={{ py: 5, bgcolor: 'rgb(165, 215, 232)', minHeight: 'calc(100vh - 64px)' }}>
       {partners.map(partner => (
-        <PartnerCard
-          key={partner.id}
-          id={partner.id}
-          title={partner.title}
-          description={partner.description}
-          imageUrl={partner.imageUrl}
-        />
+        <Box key={partner.id} sx={{ mb: 3 }}>
+          <PartnerCard
+            id={partner.id}
+            title={partner.name}
+            description={partner.tagline}
+            imageUrl={partner.profilePic} // Assuming PartnerCard component has a prop for imageUrl
+          />
+        </Box>
       ))}
-    </div>
+    </Container>
   );
 };
 

@@ -236,11 +236,11 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import ProfileAvatar from '../common/ProfileAvatar';
-import axios from '../common/axiosInstance';
-import { useAuth } from '../common/AuthContext';
+import ProfileAvatar from '../../common/ProfileAvatar';
+import axios from '../../common/axiosInstance';
+import { useAuth } from '../../common/AuthContext';
 
-const PartnerProfile = () => {
+const PartnerPage = () => {
   const { id } = useParams();
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({});
@@ -261,7 +261,7 @@ const PartnerProfile = () => {
 
     const fetchPartnerData = async () => {
       try {
-        const response = await axios.get(`/partners/${authState.photographerId}`);
+        const response = await axios.get(`/partners/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error('Error fetching partner data:', error);
@@ -465,4 +465,4 @@ const PartnerProfile = () => {
   );
 };
 
-export default PartnerProfile;
+export default PartnerPage;
